@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <link rel ="stylesheet" type ="text/css" href="/static/style.css">
+    <nav>
+        <a href="/">Main Blog Page</a> |
+        <a href="/newpost">Add a Blog entry</a>
+
+    </nav>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div>
+        {% with messages = get_flashed_messages(with_categories = True)%}
+            <ul>
+                {% for category, message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endwith%}
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
